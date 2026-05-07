@@ -1,0 +1,29 @@
+$TTL 86400
+@   IN  SOA ns.l2-3.ephec-ti.be. admin.l2-3.ephec-ti.be. (
+        2026040914
+        3600
+        1800
+        604800
+        86400 )
+
+; Serveurs de noms
+@           IN  NS      ns.l2-3.ephec-ti.be.
+
+; Glue records
+ns          IN  A       91.134.137.240
+
+; Enregistrements A
+mail        IN  A       91.134.137.240
+vpn         IN  A	1.2.3.4
+www         IN  A       91.134.137.240
+blog        IN  A       91.134.137.240
+; MX
+@           IN  MX  10  mail.l2-3.ephec-ti.be.
+; --- Sécurité Mail ---
+@        IN  TXT     "v=spf1 ip4:91.134.137.240 mx -all"
+_dmarc   IN  TXT     "v=DMARC1; p=none; rua=mailto:postmaster@l2-3.ephec-ti.be"
+
+; DKIM
+mail._domainkey IN TXT ( "v=DKIM1; h=sha256; k=rsa; "
+    "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArB0tXdgYdyjle9t7qLxqGwOI7dBthICPZiHq2TjPtypdYQyiXg5tmiljDccokx/Wl3ihb+LT9KvkTyqHyOXs+yUiZSQCag7zGK+/fvRm3xLZMio1ni3Zkm6+W+oR9giVTHRpdfDPdDca9yO+VKOHMC1DVw08v0wJmVQfi4wPCWsvHdsjYE3BYaboQPVyaqI1ZEk0w2kZ1V/HN5"
+    "ikACVUwOgVbOQwmBUcmnv3mJpWuZ/1G3CActBWV8S9W6zxBhUczEdgpxhDiWPj8IRAPLuh4YVq26joILOApcgtVJWrCAhC1QTi9CdWWfB8gkGLFe1rzqBvzq5p5SDDvT1S79e7XQIDAQAB" )
